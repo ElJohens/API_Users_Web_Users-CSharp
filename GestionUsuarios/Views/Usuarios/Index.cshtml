@@ -1,0 +1,77 @@
+﻿@model IEnumerable<GestionUsuarios.Models.Usuario>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container-fluid px-4">
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-table me-1"></i>
+            Usuarios Activos
+        </div>
+        <div class="card-body">
+            <table id="datatablesSimple">
+                <thead>
+                    <tr>
+                        <th>Alias</th>
+                        <th>Identificación</th>
+                        <th>Nombre</th>
+                        <th>Apellidos</th>
+                        <th>Correo</th>
+                        <th>Telefono</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Alias</th>
+                        <th>Identificación</th>
+                        <th>Nombre</th>
+                        <th>Apellidos</th>
+                        <th>Correo</th>
+                        <th>Telefono</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UsuarioAlias)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UsuarioIdentificacion)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UsuarioNombre)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UsuarioApellidos)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UsuarioCorreo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UsuarioTelefono)
+                            </td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.UsuarioId"><i class="bi bi-pencil-square"></i></a>
+                                @*<a asp-action="Details" asp-route-id="@item.UsuarioId">Details</a>
+                            <a asp-action="Delete" asp-route-id="@item.UsuarioId">Delete</a>*@
+                            </td>
+                            <td>
+                                <a asp-action="Delete" asp-route-id="@item.UsuarioId"><i style="color:orangered" class="bi bi-trash3-fill"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

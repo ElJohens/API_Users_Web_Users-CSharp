@@ -1,0 +1,98 @@
+﻿@model GestionUsuarios.Models.Usuario
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-7">
+            <div class="card shadow-lg border-0 rounded-lg mt-5">
+                <div class="card-header"><h3 class="text-center font-weight-light my-4">Editando Usuario</h3></div>
+                <div class="card-body">
+                    <form asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="UsuarioId" />
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <div class="form-floating mb-3 mb-md-0">
+                                    <input required asp-for="UsuarioNombre" class="form-control" />
+                                    <span asp-validation-for="UsuarioNombre" class="text-danger"></span>
+                                    <label for="UsuarioNombre">Nombre</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input required asp-for="UsuarioApellidos" class="form-control" />
+                                    <span asp-validation-for="UsuarioApellidos" class="text-danger"></span>
+                                    <label for="UsuarioApellidos">Apellidos</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <div class="form-floating mb-3 mb-md-0">
+                                    <input required asp-for="UsuarioIdentificacion" class="form-control" />
+                                    <span asp-validation-for="UsuarioIdentificacion" class="text-danger"></span>
+                                    <label for="UsuarioIdentificacion">Identificación</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input asp-for="UsuarioAlias" class="form-control" readonly="readonly" />
+                                    <span asp-validation-for="UsuarioAlias" class="text-danger"></span>
+                                    <label for="UsuarioAlias">Alias Usuario</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <div class="form-floating mb-3 mb-md-0">
+                                    <input required type="email" asp-for="UsuarioCorreo" class="form-control" />
+                                    <span asp-validation-for="UsuarioCorreo" class="text-danger"></span>
+                                    <label for="UsuarioCorreo">Correo</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input required asp-for="UsuarioTelefono" class="form-control" />
+                                    <span asp-validation-for="UsuarioTelefono" class="text-danger"></span>
+                                    <label for="UsuarioTelefono">Teléfono</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <div class="form-floating mb-3 mb-md-0">
+                                    <select name="roles" id="roles" class="form-control">
+                                        @if (Model.UsuarioRole.RoleId == 1)
+                                        {
+                                            <option value="1" selected="selected">Administrador</option>
+                                            <option value="2">Normal</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="1">Administrador</option>
+                                            <option value="2" selected="selected">Normal</option>
+                                        }
+
+                                    </select>
+                                    <label for="roles">Selecciona Un Rol:</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 mb-0">
+                            <div class="d-grid"><input type="submit" value="Guardar Cambios" class="btn btn-primary btn-block" /></div>
+                        </div>
+                        <div>
+                            <a asp-action="Index">Regresar a la lista</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

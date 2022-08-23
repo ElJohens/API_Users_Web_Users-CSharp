@@ -1,0 +1,98 @@
+﻿@model GestionUsuarios.Models.Usuario
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-7">
+            <div class="card shadow-lg border-0 rounded-lg mt-5">
+                <div class="card-header"><h3 class="text-center font-weight-light my-4">Creando Usuario</h3></div>
+                <div class="card-body">
+                    <form asp-action="Create">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <div class="form-floating mb-3 mb-md-0">
+                                    <input required asp-for="UsuarioNombre" class="form-control" />
+                                    <span asp-validation-for="UsuarioNombre" class="text-danger"></span>
+                                    <label for="UsuarioNombre">Nombre</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input required asp-for="UsuarioApellidos" class="form-control" />
+                                    <span asp-validation-for="UsuarioApellidos" class="text-danger"></span>
+                                    <label for="UsuarioApellidos">Apellidos</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <div class="form-floating mb-3 mb-md-0">
+                                    <input required asp-for="UsuarioIdentificacion" class="form-control" />
+                                    <span asp-validation-for="UsuarioIdentificacion" class="text-danger"></span>
+                                    <label for="UsuarioIdentificacion">Identificación</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input required asp-for="UsuarioAlias" class="form-control" />
+                                    <span asp-validation-for="UsuarioAlias" class="text-danger"></span>
+                                    <label for="UsuarioAlias">Alias Usuario</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <div class="form-floating mb-3 mb-md-0">
+                                    <input required type="email" asp-for="UsuarioCorreo" class="form-control" />
+                                    <span asp-validation-for="UsuarioCorreo" class="text-danger"></span>
+                                    <label for="UsuarioCorreo">Correo</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input required asp-for="UsuarioTelefono" class="form-control" />
+                                    <span asp-validation-for="UsuarioTelefono" class="text-danger"></span>
+                                    <label for="UsuarioTelefono">Teléfono</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <div class="form-floating mb-3 mb-md-0">
+
+                                    <select name="roles" id="roles" class="form-control">
+                                        <option value="1">Administrador</option>
+                                        <option value="2" selected="selected">Normal</option>
+                                    </select>
+
+                                    <label for="roles">Selecciona Un Rol:</label>
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input required type="password" name="pass" id="pass" asp-for="PasswordNavigation.PasswordText" class="form-control" />
+                                    <span asp-validation-for="PasswordNavigation.PasswordText" class="text-danger"></span>
+                                    <label for="UsuarioTelefono">Contraseña</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 mb-0">
+                            <div class="d-grid"><input type="submit" value="Crear Usuario" class="btn btn-primary btn-block" /></div>
+                        </div>
+                        <div>
+                            <a asp-action="Index">Ir a la lista</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
